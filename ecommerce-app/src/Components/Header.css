@@ -1,0 +1,28 @@
+.header-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: 300px;
+}
+.buttons-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  left: 200px;
+}
+ .header-title:visited{
+     color: inherit; 
+    text-decoration: inherit; 
+}
+
+button {
+  height: 30px;
+  width: 100px;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: blue;
+}
+.header-logout, .header-cart{
+  color: white;
+}

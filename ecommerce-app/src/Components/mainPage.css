@@ -1,0 +1,97 @@
+/* src/App.css */
+.App {
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  height: 100vh;
+}
+.product-images {
+  height: 150px;
+  width: 150px;
+}
+.searchbutton {
+  border-radius: 15px;
+  height: 40px;
+  width: 100px;
+  background-color: blue;
+  color: white;
+}
+.App-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+}
+.App{
+  width: 100vw;
+
+}
+h1 {
+  font-size: 2.5em;
+  margin: 0;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  padding: 20px;
+  overflow-y: auto;
+  max-height: 90vh;
+  max-width: 100%;
+}
+.search-input {
+  border-radius: 15px;
+  height: 40px;
+}
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  gap: 90px;
+  margin-left: 80px;
+}
+.sort {
+  width: 200px;
+  height: 40px;
+  border-radius: 15px;
+}
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10x;
+}
+.add-to-cart {
+  border-radius: 15px;
+  height: 40px;
+  width: 100px;
+  background-color: blue;
+  color: white;
+}
+.product-card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  width: 300px;
+  height: 300px;
+  margin: 16px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  background-color: rgb(212, 218, 224);
+}
+
+.product-card h2 {
+  font-size: 1.2em;
+  margin: 0.5em 0;
+}
+
+.product-card p {
+  font-size: 1em;
+  color: #333;
+}
