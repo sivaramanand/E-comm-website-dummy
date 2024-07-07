@@ -1,0 +1,86 @@
+/* src/customModal.css */
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+  }
+  
+  .topRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .emojiDiv {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .emojiDiv div {
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .emojiDiv div p {
+    margin: 5px 0 0;
+    font-size: 14px;
+  }
+  
+  button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .emojiDiv div.selected {
+    background-color: #ff00ee;
+    border-radius: 15%;
+    padding-inline: 5px;
+    color: white;
+  }
+  
+  .emojiDiv div:hover {
+    background-color: #007bff;
+    border-radius: 15%;
+    padding-inline: 5px;
+    color: white;
+  }
+  
