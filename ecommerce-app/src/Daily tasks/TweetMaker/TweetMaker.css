@@ -1,0 +1,78 @@
+/* TweetMaker.css */
+.tweet-maker {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+  gap: 50px;
+  background-color: white;
+}
+
+.tweet-caption {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 40vw;
+}
+
+.profile-image-upload,
+.tweet-image-upload {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-image-preview,
+.tweet-image-preview {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.tweet-preview {
+  margin-top: 20px;
+  width: 40vw;
+  background-color: rgb(1, 1, 23);
+  color: white;
+  padding: 15px;
+  border-radius: 3px;
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+.user-info {
+  display: flex;
+  flex-direction: row;
+}
+.user-name {
+    display: flex;
+    flex-direction: column;
+    gap:none;
+  }
+
+.verified {
+  color: blue;
+  margin-top: 15px;
+}
+
+.tweet-content {
+  margin-top: 10px;
+}
+
+.tweet-image {
+  max-width: 100%;
+  margin-top: 10px;
+}

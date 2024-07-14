@@ -6,6 +6,10 @@ import QuizApplication from "./Daily tasks/Quiz Application/QuizApplication";
 import FileUpload from "./Daily tasks/File Uploader/fileUpload";
 import Todotasks from "./Redo Tasks/Todo Tasks/todotasks";
 import ExpenseTraker from "./Daily tasks/Expense Tracker/ExpenseTraker";
+import TweetMaker from "./Daily tasks/TweetMaker/TweetMaker";
+import SearchApi from "./Daily tasks/Search API/SearchApi";
+import Comments from "./Daily tasks/Comment Section/Comments";
+import MultiStepForm from "./Daily tasks/MultiStepForm/MultiStepForm";
 function App() {
   return (
     <>
@@ -13,7 +17,12 @@ function App() {
       {/*<MainPage />*/}
       {/*<QuizApplication />*/}
       {/* <FileUpload />*/}
-      <ExpenseTraker />
+      {/*<ExpenseTraker />*/}
+      {/*<TweetMaker />*/}
+      {/*<Todotasks />*/}
+      {/*<SearchApi />*/}
+      {/*<Comments />*/}
+      <MultiStepForm />
     </>
   );
 }
