@@ -14,6 +14,8 @@ import MultiStepForm from "./Daily tasks/MultiStepForm/MultiStepForm";
 import UseReducer from "./Daily tasks/Hooks Practice/UseReducer";
 import Autocomplete from "./Daily tasks/AutoComplete API/AutoComplete";
 import UseEffect from "./Daily tasks/Hooks Practice/UseEffect";
+import SortData from "./Daily tasks/Sort Data/sortData";
+import ProductDetails from "./Components/ProductPage";
 function App() {
   return (
     <>
@@ -30,7 +32,9 @@ function App() {
       {/*<UseReducer />*/}
       {/*<UseEffect />*/}
       {/*<Autocomplete />*/}
-      <Memorygame />
+      {/*<Memorygame />*/}
+      {/*<SortData />*/}
+      <ProductDetails />
     </>
   );
 }
