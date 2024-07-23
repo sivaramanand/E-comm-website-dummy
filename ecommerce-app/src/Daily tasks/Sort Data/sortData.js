@@ -1,107 +1,71 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./sortData.css";
 const SortData = () => {
-    const [loading, setLoading] = useState(false);
-    const [todos, setTodos] = useState([]);
-  
-    async function fetchListOfTodos() {
-      try {
-        setLoading(true);
-        const apiResponse = await fetch(
-          "https://dummyjson.com/todos?limit=5&skip=0"
-        );
-        const result = await apiResponse.json();
-  
-        if (result && result.todos && result.todos.length > 0) {
-          setLoading(false);
-          const updatedTodos = result.todos.map((todoItem) => ({
-            ...todoItem,
-            status: "wip",
-          }));
-          setTodos(updatedTodos);
-        }
-      } catch (e) {
-        console.log(e);
-        setLoading(false);
-      }
+  const [loading, setLoading] = useState(false);
+  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedProducts, setSelectedProducts] = useState([]);
+
+  const url = "https://dummyjson.com/products?limit=100";
+
+  const fetchProducts = async () => {
+    const productlist = await axios.get(url);
+    setProducts(productlist.data.products);
+    setSelectedProducts(productlist.data.products);
+    console.log(productlist.data.products);
+  };
+
+  const fetchCategories = async () => {
+    const productlist = await axios.get(url);
+    const productcategories = productlist.data.products.map(
+      (item) => item.category
+    );
+    const individualproductcategories = [...new Set(productcategories)];
+    setCategories(individualproductcategories);
+    console.log(categories);
+  };
+  const setCategory = (item) => {
+    setSelectedCategory(item);
+    if (selectedCategory === "all") {
+      setSelectedProducts(products);
+    } else {
+      setSelectedProducts(
+        products.filter((products) => products.category === item)
+      );
     }
-  
-    useEffect(() => {
-      fetchListOfTodos();
-    }, []);
-  
-    console.log(todos);
-  
-    function onDragStart(event, id){
-      event.dataTransfer.setData('id',id)
-    }
-  
-    function onDrop(event,status){
-      const id = event.dataTransfer.getData('id');
-      console.log(event.dataTransfer.getData('id'));
-      let updateTodos = todos.filter(todoItem=> {
-  
-          if(todoItem.id.toString() === id){
-              todoItem.status = status
-          }
-          return todoItem
-      })
-  
-      setTodos(updateTodos)
-  
-    }
-  
-    function renderTodos() {
-      const todoListToRender = {
-        wip: [],
-        completed: [],
-      };
-  
-      todos.forEach((todoItem) => {
-        todoListToRender[todoItem.status].push(
-          <div
-            onDragStart={(event) => onDragStart(event, todoItem.id)}
-            draggable
-            key={todoItem.id}
-            className="todo-card"
-          >
-            {todoItem.todo}
-          </div>
-        );
-      });
-  
-      return todoListToRender
-    }
-  
-    if(loading) return <h1>Loading data! Please wait</h1>
-  
+  };
+  useEffect(() => {
+    fetchProducts();
+    fetchCategories();
+  }, []);
+
   return (
-    <div className="drag-and-drop-container">
-    <h1>Drag and Drop</h1>
-    <div className="drag-and-drop-board">
-      <div
-        onDrop={(event) => onDrop(event, "wip")}
-        onDragOver={(event) => event.preventDefault()}
-        className="work-in-progress"
-      >
-        <h3>In Progress</h3>
-        <div className="todo-list-wrapper">
-        {renderTodos().wip}
+    <div className="mainClass">
+      <h5>Product Filter By category</h5>
+      <div className="category">
+        <div className="item" onClick={() => setCategory("all")}>
+          All
         </div>
+        {categories.map((item) => (
+          <>
+            <div onClick={() => setCategory(item)} key={item} className="item">
+              {item}
+            </div>
+          </>
+        ))}
       </div>
-      <div
-        onDrop={(event) => onDrop(event, "completed")}
-        onDragOver={(event) => event.preventDefault()}
-        className="completed"
-      >
-        <h3>Completed</h3>
-        <div className="todo-list-wrapper">
-        {renderTodos().completed}
-        </div>
+      <div className="productsParent">
+        {selectedProducts.map((items) => (
+          <div className="products">
+            <img src={items.thumbnail} />
+            <h3>{items.title}</h3>
+            <p>{items.price}</p>
+          </div>
+        ))}
       </div>
     </div>
-  </div>
   );
 };
-
 export default SortData;

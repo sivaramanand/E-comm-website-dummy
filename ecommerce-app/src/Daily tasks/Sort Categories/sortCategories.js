@@ -1,53 +1,54 @@
 // src/components/ProductList.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './ProductList.css';
-import CategoryFilter from './CategoryFilter';
+
 const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState('');
 
   useEffect(() => {
+    const fetchProducts = async () => {
+      const response = await axios.get('https://fakestoreapi.com/products');
+      setProducts(response.data);
+    };
+
+    const fetchCategories = async () => {
+      const response = await axios.get('https://fakestoreapi.com/products/categories');
+      setCategories(response.data);
+    };
+
     fetchProducts();
     fetchCategories();
   }, []);
 
-  const fetchProducts = async () => {
-    try {
-      const response = await axios.get('https://fakestoreapi.com/products');
-      setProducts(response.data);
-    } catch (error) {
-      console.error('Error fetching products:', error);
-    }
+  const handleCategoryChange = (event) => {
+    setSelectedCategory(event.target.value);
   };
 
-  const fetchCategories = async () => {
-    try {
-      const response = await axios.get('https://fakestoreapi.com/products/categories');
-      setCategories(['All', ...response.data]);
-    } catch (error) {
-      console.error('Error fetching categories:', error);
-    }
-  };
-
-  const filteredProducts = selectedCategory === 'All'
-    ? products
-    : products.filter(product => product.category === selectedCategory);
+  const filteredProducts = selectedCategory
+    ? products.filter(product => product.category === selectedCategory)
+    : products;
 
   return (
-    <div className="product-list-container">
-      <CategoryFilter
-        categories={categories}
-        selectedCategory={selectedCategory}
-        onSelectCategory={setSelectedCategory}
-      />
-      <div className="products">
+    <div>
+      <h1>Product List</h1>
+      <div>
+        <label htmlFor="category">Filter by Category: </label>
+        <select id="category" onChange={handleCategoryChange}>
+          <option value="">All</option>
+          {categories.map(category => (
+            <option key={category} value={category}>{category}</option>
+          ))}
+        </select>
+      </div>
+      <div>
         {filteredProducts.map(product => (
-          <div key={product.id} className="product-card">
-            <img src={product.image} alt={product.title} />
-            <h3>{product.title}</h3>
-            <p>${product.price}</p>
+          <div key={product.id} style={{ border: '1px solid black', margin: '10px', padding: '10px' }}>
+            <h2>{product.title}</h2>
+            <p>{product.description}</p>
+            <p><strong>Price:</strong> ${product.price}</p>
+            <p><strong>Category:</strong> {product.category}</p>
           </div>
         ))}
       </div>

@@ -15,7 +15,10 @@ import UseReducer from "./Daily tasks/Hooks Practice/UseReducer";
 import Autocomplete from "./Daily tasks/AutoComplete API/AutoComplete";
 import UseEffect from "./Daily tasks/Hooks Practice/UseEffect";
 import SortData from "./Daily tasks/Sort Data/sortData";
+import Map from "./Daily tasks/Map Markers/mapMarkers";
 import ProductDetails from "./Components/ProductPage";
+import Weather from "./Daily tasks/Weather API/weatherAPI";
+import FormValidation from "./Daily tasks/FormValidation/formValidaiton";
 function App() {
   return (
     <>
@@ -34,7 +37,10 @@ function App() {
       {/*<Autocomplete />*/}
       {/*<Memorygame />*/}
       {/*<SortData />*/}
-      <ProductDetails />
+      {/*<ProductDetails />*/}
+      {/*<Weather />*/}
+      <FormValidation />
+
     </>
   );
 }
