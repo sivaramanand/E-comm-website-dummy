@@ -19,6 +19,10 @@ import Map from "./Daily tasks/Map Markers/mapMarkers";
 import ProductDetails from "./Components/ProductPage";
 import Weather from "./Daily tasks/Weather API/weatherAPI";
 import FormValidation from "./Daily tasks/FormValidation/formValidaiton";
+import CustomTabs from "./Daily tasks/Custom Tabs/customTabs";
+import Main from "./Daily tasks/Custom Notificaiton/Main";
+import UnitConversion from "./Redo Tasks/uint conversion/unitConversion";
+import Timer from "./Redo Tasks/Timer/timer";
 function App() {
   return (
     <>
@@ -39,8 +43,11 @@ function App() {
       {/*<SortData />*/}
       {/*<ProductDetails />*/}
       {/*<Weather />*/}
-      <FormValidation />
-
+      {/*<FormValidation />*/}
+      {/*<CustomTabs />*/}
+      {/*<Main />*/}
+      {/*<UnitConversion />*/}
+      <Timer/>
     </>
   );
 }
